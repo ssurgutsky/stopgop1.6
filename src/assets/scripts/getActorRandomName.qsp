@@ -1,0 +1,3 @@
+let a = ["cage", "rock"];
+let rnd = parseInt(Math.random() * a.length);
+this.actorName=a[rnd];'';
