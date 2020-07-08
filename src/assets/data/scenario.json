@@ -180,7 +180,7 @@
                                                                                                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                                                                                                                   "_mark": "EPISODE10",
-                                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL ][VIDEO {this.actorName}/GopDrinkHit][AUDIO gop_drink_hit]"
+                                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL ...][VIDEO {this.actorName}/GopDrinkHit][AUDIO gop_drink_hit]"
                                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                                                                               "_mark": "",
@@ -2929,10 +2929,32 @@
                               ],
                               "_mark": "sorry_i_am_hurry",
                               "_content": "[LABEL Извини, я тороплюсь!]"
+                            },
+                            {
+                              "node": [
+                                {
+                                  "node": [
+                                    {
+                                      "node": [
+                                        {
+                                          "_mark": "mark_hi7xgz7s5q56z57t6gqj",
+                                          "_content": "[LABEL ][GOTO {this.gotoMark}]"
+                                        }
+                                      ],
+                                      "_mark": "",
+                                      "_content": "[LABEL ]"
+                                    }
+                                  ],
+                                  "_mark": "mark_ht148aj862wm21q30ogd",
+                                  "_content": "[LABEL ][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on\" width=\"450\" height=\"199\"]"
+                                }
+                              ],
+                              "_mark": "donate",
+                              "_content": "[LABEL Достать лопатник.]"
                             }
                           ],
                           "_mark": "GAME_SAVEPOINT",
-                          "_content": "[LABEL Эээ... братишка, постой!][VIDEO {this.actorName}/GopSpeechSimpleLoop][AUDIO Hey_brother_stop][BGNDVIDEO {this.actorName}/GopStandsBouncing][AMBIENT ambient][TIMEEXPIRED gop_punchs_to_face][ANSWERTIME 30]"
+                          "_content": "[LABEL Эээ... братишка, постой!{getActorRandomName.qsp}][VIDEO {this.actorName}/GopSpeechSimpleLoop][AUDIO Hey_brother_stop][BGNDVIDEO {this.actorName}/GopStandsBouncing][AMBIENT ambient][TIMEEXPIRED gop_punchs_to_face][ANSWERTIME 30]"
                         }
                       ],
                       "_mark": "",
@@ -2941,6 +2963,10 @@
                     {
                       "_mark": "",
                       "_content": "[LABEL ][GOTO sorry_i_am_hurry]"
+                    },
+                    {
+                      "_mark": "",
+                      "_content": "[LABEL {this.gotoMark='GAME_SAVEPOINT';'';}][GOTO donate]"
                     }
                   ],
                   "_mark": "mark_nh9asl5jq59gt4k3qd7s",
@@ -3025,18 +3051,12 @@
                         {
                           "node": [
                             {
-                              "node": [
-                                {
-                                  "_mark": "mark_9il94i1226ouc6w83lc3",
-                                  "_content": "[LABEL ][GOTO START]"
-                                }
-                              ],
                               "_mark": "",
-                              "_content": "[LABEL В начало.]"
+                              "_content": "[LABEL {this.gotoMark='see_titles';'';}][GOTO donate]"
                             }
                           ],
-                          "_mark": "mark_19js8x58n83zj5sp545b",
-                          "_content": "[LABEL Ну как, понравилось? Подогрей яндекс-кошель? Спасиб тебе! https://money.yandex.ru/to/41001220674141][VIDEO Titles][AUDIO silent_200][MUSIC none]"
+                          "_mark": "see_titles",
+                          "_content": "[LABEL Ну как, понравилось? Подогрей яндекс-кошель? Спасиб тебе! https://money.yandex.ru/to/41001220674141][BGNDVIDEO Titles][MUSIC none]"
                         }
                       ],
                       "_mark": "",
@@ -3049,10 +3069,14 @@
               ],
               "_mark": "",
               "_content": "[LABEL НАЧАТЬ ИГРУ / START THE GAME]"
+            },
+            {
+              "_mark": "",
+              "_content": "[LABEL {this.gotoMark='START';'';}][GOTO donate]"
             }
           ],
           "_mark": "START",
-          "_content": "[LABEL Sim-Gop 1.6 Симулятор общения с гопником (Полная версия).{getActorRandomName.qsp}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
+          "_content": "[LABEL Stop Gop 1.6 Симулятор общения с гопником (Полная версия).{initSystem.qsp}{getActorRandomName.qsp}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
         }
       ]
     }
