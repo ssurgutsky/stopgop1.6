@@ -1,7 +1,5 @@
+import Settings from '@/components/Settings.js'
 export default {
-  IndexedDBVersion: 1,
-  IndexedDBStoreName: 'store_sg16',
-  ENABLED: false,
   preloadingCallback: null,
   CATEGORY_VIDEO: 'video',
   CATEGORY_AUDIO: 'audio',
@@ -53,12 +51,13 @@ export default {
           resolve(res)
         })
         .catch(reason => {
-          console.log('No gameAssets in IndexedDb, loading for new')
           this.loadGameAssetsDictionary()
             .then(res => {
               // console.log('gameAssets:', res)
               this.gameAssets = res
-              this.saveAssetsToIndexedDB()
+              if (Settings.CACHE_ENABLED) {
+                this.saveAssetsToIndexedDB()
+              }
               resolve(res)
             })
             .catch(reason => {
@@ -70,8 +69,12 @@ export default {
 
   loadAssetsFromIndexedDB () {
     return new Promise((resolve, reject) => {
+      if (!Settings.CACHE_ENABLED) {
+        reject(new TypeError('loadAssetsFromIndexedDB: CACHE_ENABLED = false'))
+        return
+      }
       if (('indexedDB' in window)) {
-        let openRequest = indexedDB.open(this.IndexedDBStoreName, this.IndexedDBVersion)
+        let openRequest = indexedDB.open(Settings.INDEXEDDB_STORE_NAME, Settings.INDEXEDDB_VERSION)
         // console.log(openRequest)
         openRequest.onupgradeneeded = (event) => {
           let db = event.target.result
@@ -94,12 +97,13 @@ export default {
           req.onsuccess = (event) => {
             let tmp = event.target.result
             if (tmp && tmp.value) {
-              console.log('Taken gameAssets from IndexedDB v.' + this.IndexedDBVersion, tmp)
+              console.log('Taken gameAssets from IndexedDB v.' + Settings.INDEXEDDB_VERSION, tmp)
               resolve(tmp.value)
             } else {
               reject(new TypeError('No gameAssets record in IndexedDB!'))
             }
           }
+
           req.onerror = (event) => {
             reject(new TypeError('No gameAssets record in IndexedDB!'))
           }
@@ -120,8 +124,12 @@ export default {
 
   saveAssetsToIndexedDB () {
     return new Promise((resolve, reject) => {
+      if (!Settings.CACHE_ENABLED) {
+        reject(new TypeError('saveAssetsToIndexedDB: CACHE_ENABLED = false'))
+        return
+      }
       if (('indexedDB' in window)) {
-        let openRequest = indexedDB.open(this.IndexedDBStoreName, this.IndexedDBVersion)
+        let openRequest = indexedDB.open(Settings.INDEXEDDB_STORE_NAME, Settings.INDEXEDDB_VERSION)
         // console.log(openRequest)
         openRequest.onupgradeneeded = (event) => {
           let db = event.target.result
@@ -138,10 +146,10 @@ export default {
           let tx = db.transaction(['gameAssets'], 'readwrite')
           // console.log(tx)
           let store = tx.objectStore('gameAssets')
-          console.log(store)
+          // console.log(store)
 
           store.put({id: 1, value: this.gameAssets})
-          console.log('Saving loaded assets to IndexedDB v.' + this.IndexedDBVersion)
+          console.log('Saving loaded assets to IndexedDB v.' + Settings.INDEXEDDB_VERSION)
 
           tx.oncomplete = () => {
             console.log('Save success')
@@ -149,7 +157,7 @@ export default {
           }
           tx.onerror = (event) => {
             console.log('Save error!')
-            reject(new TypeError('Error saving loaded assets to IndexedDB! v.' + this.IndexedDBVersion))
+            reject(new TypeError('Error saving loaded assets to IndexedDB! v.' + Settings.INDEXEDDB_VERSION))
           }
         }
       } else {
@@ -160,7 +168,7 @@ export default {
   },
 
   async loadGameAssetsDictionary () {
-    const requireContext = this.ENABLED ? require.context('@/assets/', true, /\.(mp3|mp4|jpg|png|qsp|json)(\?.*)?$/)
+    const requireContext = Settings.CACHE_ENABLED ? require.context('@/assets/', true, /\.(mp3|mp4|jpg|png|qsp|json)(\?.*)?$/)
       : require.context('@/assets/', true, /\.(qsp|json)(\?.*)?$/)
     let arr = requireContext.keys().map(file =>
       [file.replace('./', ''), requireContext(file)]
