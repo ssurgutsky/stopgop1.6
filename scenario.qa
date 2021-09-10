@@ -1,4 +1,4 @@
-[START]Stop Gop 1.6 Симулятор общения с гопником (Полная версия).{initSystem.qsp}{getActorRandomName.qsp}[BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]
+[START]Stop Gop 1.6 Симулятор общения с гопником (Полная версия).{initSystem.qsp}{getActorRandomName.qsp}[BGNDIMAGE Intro.jpg][ANSWERSORDER ON]
 	НАЧАТЬ ИГРУ / START THE GAME
 		[mark_nh9asl5jq59gt4k3qd7s]Эээ... братишка, постой![VIDEO {this.actorName}/Intro][AUDIO Hey_brother_stop_long][BGNDVIDEO {this.actorName}/GopStandsBouncing][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AMBIENT ambient]
 			[GOTO what_do_you_want]
