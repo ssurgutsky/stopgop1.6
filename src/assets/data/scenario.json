@@ -2929,32 +2929,10 @@
                               ],
                               "_mark": "sorry_i_am_hurry",
                               "_content": "[LABEL Извини, я тороплюсь!]"
-                            },
-                            {
-                              "node": [
-                                {
-                                  "node": [
-                                    {
-                                      "node": [
-                                        {
-                                          "_mark": "mark_hi7xgz7s5q56z57t6gqj",
-                                          "_content": "[LABEL ][GOTO {this.gotoMark}]"
-                                        }
-                                      ],
-                                      "_mark": "",
-                                      "_content": "[LABEL ]"
-                                    }
-                                  ],
-                                  "_mark": "mark_ht148aj862wm21q30ogd",
-                                  "_content": "[LABEL ][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on\" width=\"450\" height=\"199\"]"
-                                }
-                              ],
-                              "_mark": "donate",
-                              "_content": "[LABEL Достать лопатник.]"
                             }
                           ],
                           "_mark": "GAME_SAVEPOINT",
-                          "_content": "[LABEL Эээ... братишка, постой!{getActorRandomName.qsp}][VIDEO {this.actorName}/GopSpeechSimpleLoop][AUDIO Hey_brother_stop][BGNDVIDEO {this.actorName}/GopStandsBouncing][AMBIENT ambient][TIMEEXPIRED gop_punchs_to_face][ANSWERTIME 30]"
+                          "_content": "[LABEL Эээ... братишка, постой!{script getActorRandomName.qsp}][VIDEO {this.actorName}/GopSpeechSimpleLoop][AUDIO Hey_brother_stop][BGNDVIDEO {this.actorName}/GopStandsBouncing][AMBIENT ambient][TIMEEXPIRED gop_punchs_to_face][ANSWERTIME 30]"
                         }
                       ],
                       "_mark": "",
@@ -2963,10 +2941,6 @@
                     {
                       "_mark": "",
                       "_content": "[LABEL ][GOTO sorry_i_am_hurry]"
-                    },
-                    {
-                      "_mark": "",
-                      "_content": "[LABEL {this.gotoMark='GAME_SAVEPOINT';'';}][GOTO donate]"
                     }
                   ],
                   "_mark": "mark_nh9asl5jq59gt4k3qd7s",
@@ -3056,7 +3030,7 @@
                             }
                           ],
                           "_mark": "see_titles",
-                          "_content": "[LABEL Ну как, понравилось? Подогрей яндекс-кошель? Спасиб тебе! https://money.yandex.ru/to/41001220674141][BGNDVIDEO Titles][MUSIC none]"
+                          "_content": "[LABEL Ну как, понравилось? Подогрей яндекс-кошель? Спасиб тебе!][BGNDVIDEO Titles][MUSIC none]"
                         }
                       ],
                       "_mark": "",
@@ -3071,12 +3045,52 @@
               "_content": "[LABEL НАЧАТЬ ИГРУ / START THE GAME]"
             },
             {
-              "_mark": "",
-              "_content": "[LABEL {this.gotoMark='START';'';}][GOTO donate]"
+              "node": [
+                {
+                  "node": [
+                    {
+                      "node": [
+                        {
+                          "_mark": "mark_hi7xgz7s5q56z57t6gqj",
+                          "_content": "[LABEL ][GOTO {this.gotoMark}]"
+                        }
+                      ],
+                      "_mark": "",
+                      "_content": "[LABEL ]"
+                    }
+                  ],
+                  "_mark": "mark_655ij07y5pga6b0yvxlr",
+                  "_content": "[LABEL ][NAVIGATEURL https://sobe.ru/na/serjios]"
+                }
+              ],
+              "_mark": "donate",
+              "_content": "[LABEL На развитие проекта (sobe.ru/na/serjios)]"
+            },
+            {
+              "node": [
+                {
+                  "node": [
+                    {
+                      "node": [
+                        {
+                          "_mark": "mark_0sljw1873rb8g0620v3f",
+                          "_content": "[LABEL ][GOTO START]"
+                        }
+                      ],
+                      "_mark": "",
+                      "_content": "[LABEL ]"
+                    }
+                  ],
+                  "_mark": "mark_h17635p61xc66zla4e5m",
+                  "_content": "[LABEL ...][NAVIGATEURL https://qiwi.com/n/SERJIOS]"
+                }
+              ],
+              "_mark": "ddonate",
+              "_content": "[LABEL Донат Сержиосу (qiwi.com/n/SERJIOS)]"
             }
           ],
           "_mark": "START",
-          "_content": "[LABEL Stop Gop 1.6 Симулятор общения с гопником (Полная версия).{initSystem.qsp}{getActorRandomName.qsp}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
+          "_content": "[LABEL Stop Gop 1.6 Симулятор общения с гопником (Полная версия).{script initSystem.qsp}{script getActorRandomName.qsp}][BGNDIMAGE Intro.jpg][ANSWERSORDER ON]"
         }
       ]
     }

@@ -1,8 +1,8 @@
-[START]Stop Gop 1.6 Симулятор общения с гопником (Полная версия).{initSystem.qsp}{getActorRandomName.qsp}[BGNDIMAGE Intro.jpg][ANSWERSORDER ON]
+[START]Stop Gop 1.6 Симулятор общения с гопником (Полная версия).{script initSystem.qsp}{script getActorRandomName.qsp}[BGNDIMAGE Intro.jpg][ANSWERSORDER ON]
 	НАЧАТЬ ИГРУ / START THE GAME
 		[mark_nh9asl5jq59gt4k3qd7s]Эээ... братишка, постой![VIDEO {this.actorName}/Intro][AUDIO Hey_brother_stop_long][BGNDVIDEO {this.actorName}/GopStandsBouncing][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AMBIENT ambient]
 			[GOTO what_do_you_want]
-				[GAME_SAVEPOINT]Эээ... братишка, постой!{getActorRandomName.qsp}[VIDEO {this.actorName}/GopSpeechSimpleLoop][AUDIO Hey_brother_stop][BGNDVIDEO {this.actorName}/GopStandsBouncing][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AMBIENT ambient]
+				[GAME_SAVEPOINT]Эээ... братишка, постой!{script getActorRandomName.qsp}[VIDEO {this.actorName}/GopSpeechSimpleLoop][AUDIO Hey_brother_stop][BGNDVIDEO {this.actorName}/GopStandsBouncing][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AMBIENT ambient]
 					[what_do_you_want]Чего тебе?
 						[mark_z71rq861ty82c6v63397]А ты чо такой грубый?[BGNDVIDEO {this.actorName}/GopEatsSunflowerSeedsLoop,{this.actorName}/GopDrinks,{this.actorName}/GopSmokes][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AUDIO Why_are_you_so_rude][VIDEO {this.actorName}/GopSpeechSimpleLoop]
 							[Не_люблю_когда_отвлекают]Просто не люблю, когда отвлекают.
@@ -548,12 +548,7 @@
 								[mark_62rf34uxc92qe558987p][GOTO дело_есть_к_тебе]
 					[sorry_i_am_hurry]Извини, я тороплюсь!
 						[mark_ov6543no027no85l2im4][GOTO дело_есть_к_тебе]
-					[donate]Достать лопатник.
-						[mark_ht148aj862wm21q30ogd][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on" width="450" height="199"]
-							
-								[mark_hi7xgz7s5q56z57t6gqj][GOTO {this.gotoMark}]
 			[GOTO sorry_i_am_hurry]
-			{this.gotoMark='GAME_SAVEPOINT';'';}[GOTO donate]
 		[gop_punchs_to_face][VIDEO {this.actorName}/GopPunchesToFace][AUDIO gop_panched_you][FINAL Время истекло...]
 		[Mark_Final1][FINAL Отрицательный финал. Гоп стукнул тебя в тыквандо...][VIDEO {this.actorName}/GopPunchesToFace][AUDIO gop_panched_you]
 		[Mark_Final2][FINAL Положительный финал! Ты только  что обманул гопа! Но можно было сделать и лучше...][VIDEO {this.actorName}/GopLooksAside][AUDIO Where_is_shit]
@@ -574,6 +569,13 @@
 		[Mark_Final16][FINAL Положительный финал! Ты протряс гопа и напоил его мочой! Но можно было сделать еще чуток лучше...!]
 		[Mark_Final20]Главный финал! Ты протряс, напоил гопа мочой и стукнул в тыкву! Это полная габелла, братан!
 			Смотреть видеоклип.
-				[see_titles]Ну как, понравилось? Подогрей яндекс-кошель? Спасиб тебе! https://money.yandex.ru/to/41001220674141[BGNDVIDEO Titles][MUSIC none]
+				[see_titles]Ну как, понравилось? Подогрей яндекс-кошель? Спасиб тебе![BGNDVIDEO Titles][MUSIC none]
 					{this.gotoMark='see_titles';'';}[GOTO donate]
-	{this.gotoMark='START';'';}[GOTO donate]
+	[donate]На развитие проекта (sobe.ru/na/serjios)
+		[mark_655ij07y5pga6b0yvxlr][NAVIGATEURL https://sobe.ru/na/serjios]
+			
+				[mark_hi7xgz7s5q56z57t6gqj][GOTO {this.gotoMark}]
+	[ddonate]Донат Сержиосу (qiwi.com/n/SERJIOS)
+		[mark_h17635p61xc66zla4e5m]...[NAVIGATEURL https://qiwi.com/n/SERJIOS]
+			
+				[mark_0sljw1873rb8g0620v3f][GOTO START]
