@@ -253,7 +253,6 @@ export default {
       firstRun = false
       let pb = preresult.indexOf(SCRIPT_KEYWORD)
       hasScript = pb >= 0
-      // console.log('hasScript', hasScript)
       if (hasScript) {
         let bl = 0
         let hasScriptEnding = false
@@ -265,7 +264,7 @@ export default {
 
         if (hasScriptEnding) {
           let scriptStr = preresult.substr(pb, bl + 1)
-          // console.log('SCRIPT STR:', scriptStr)
+          console.log('SCRIPT STR:', scriptStr)
           let scriptName = scriptStr
             .replace(SCRIPT_KEYWORD, '')
             .replace(SCRIPT_EXTENSION, '')
@@ -324,7 +323,7 @@ export default {
         let jsCode = preresult.substr(start, length)
         // console.log(start, end, jsCode)
 
-        // console.log(']]]]]]]]]]]]]]]]]]]]]]]]]]]', jsCode)
+        console.log(']]]]]]]]]]]]]]]]]]]]]]]]]]]', jsCode)
         let jsCodeResult = eval(jsCode) || ''
 
         // console.log('jsCodeResult', jsCodeResult)

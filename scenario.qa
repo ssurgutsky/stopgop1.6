@@ -1,4 +1,4 @@
-[START]Stop Gop 1.6 Симулятор общения с гопником (Полная версия).{script initSystem.qsp}{script getActorRandomName.qsp}[BGNDIMAGE Intro.jpg][ANSWERSORDER ON]
+[START]Stop Gop 1.6 Симулятор общения с гопником (Полная версия).\nv1.{this.game_version}{script initSystem.qsp}{script getActorRandomName.qsp}[BGNDIMAGE Intro.jpg][ANSWERSORDER ON]
 	НАЧАТЬ ИГРУ / START THE GAME
 		[mark_nh9asl5jq59gt4k3qd7s]Эээ... братишка, постой![VIDEO {this.actorName}/Intro][AUDIO Hey_brother_stop_long][BGNDVIDEO {this.actorName}/GopStandsBouncing][ANSWERTIME 30][TIMEEXPIRED gop_punchs_to_face][AMBIENT ambient]
 			[GOTO what_do_you_want]
@@ -571,11 +571,17 @@
 			Смотреть видеоклип.
 				[see_titles]Ну как, понравилось? Подогрей яндекс-кошель? Спасиб тебе![BGNDVIDEO Titles][MUSIC none]
 					{this.gotoMark='see_titles';'';}[GOTO donate]
-	[donate]На развитие проекта (sobe.ru/na/serjios)
-		[mark_655ij07y5pga6b0yvxlr][NAVIGATEURL https://sobe.ru/na/serjios]
-			
-				[mark_hi7xgz7s5q56z57t6gqj][GOTO {this.gotoMark}]
-	[ddonate]Донат Сержиосу (qiwi.com/n/SERJIOS)
-		[mark_h17635p61xc66zla4e5m]...[NAVIGATEURL https://qiwi.com/n/SERJIOS]
-			
-				[mark_0sljw1873rb8g0620v3f][GOTO START]
+	[donate]Donate / Дать денежку
+		[mark_8o716rk6f9gm5w4vo191][IMAGE donate.png]Если понравилось, закинь сколько не жалко.
+			Перевод Tinkoff
+				[mark_f80u11uv548604r8v3v5][NAVIGATEURL https://www.tinkoff.ru/cf/7xIiPBRWF9P]
+					
+						[mark_gpz4h2d5q2gj83yqc71b][GOTO {this.gotoMark}]
+			Перевод Qiwi
+				[mark_n4f3t5qf3l1tjoui2c2f][NAVIGATEURL https://qiwi.com/n/SERJIOS]
+					
+						[mark_xw21sf4q2mxo3q0x9b78][GOTO {this.gotoMark}]
+			Перевод YooMoney
+				[mark_iz89w1lh9902e1966gt6][NAVIGATEURL https://yoomoney.ru/to/41001220674141]
+					
+						[mark_06z79l0n6q345b2ni5q2][GOTO {this.gotoMark}]

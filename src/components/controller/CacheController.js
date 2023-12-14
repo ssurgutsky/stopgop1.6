@@ -35,7 +35,7 @@ export default {
         break
     }
     let path = category + '/' + assetName
-    // console.log('CHECK!!!!', path, this.gameAssets[path])
+    // console.log(path)
     return this.gameAssets[path]
   },
 
@@ -179,7 +179,6 @@ export default {
 
     return new Promise((resolve, reject) => {
       resolve(result)
-      // console.log(result)
     })
   },
 
